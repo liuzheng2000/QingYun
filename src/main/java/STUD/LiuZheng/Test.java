@@ -1,10 +1,9 @@
 package STUD.LiuZheng;
 
-import javax.sound.midi.Soundbank;
-import javax.xml.soap.Node;
-import java.lang.reflect.Array;
-import java.net.Socket;
-import java.util.*;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * @author qingyun
@@ -3086,3 +3085,93 @@ class TreeNode {
 //        return circles;
 //    }
 //}
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node next;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _left, Node _right, Node _next) {
+        val = _val;
+        left = _left;
+        right = _right;
+        next = _next;
+    }
+};
+
+//class Solution {
+//    public Node connect(Node root) {
+//        if (root == null){
+//            return null;
+//        }
+//        LinkedList<Node> queue = new LinkedList<>();
+//        queue.offer(root);
+//        while (!queue.isEmpty()){
+//            int size = queue.size();
+//            Node last = null;
+//            for (int i = 0; i < size ; i++) {
+//                Node poll = queue.poll();
+//                if (poll.left != null){
+//                    queue.offer(poll.left);
+//                }
+//                if (poll.right != null){
+//                    queue.offer(poll.right);
+//                }
+//                if ( i != 0){
+//                    last.next = poll;
+//                }
+//                last = poll;
+//            }
+//        }
+//        return root;
+//    }
+//}
+
+//class Solution {
+//    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+//        return dfs(root,subRoot);
+//    }
+//
+//    private boolean dfs(TreeNode root, TreeNode subRoot) {
+//        if (root == null){
+//            return false;
+//        }
+//        return check(root,subRoot) || dfs(root.left,subRoot) || dfs(root.right,subRoot);
+//    }
+//
+//    private boolean check(TreeNode root, TreeNode subRoot) {
+//        if (root == null && subRoot == null){
+//            return true;
+//        }
+//        if (root == null || subRoot == null || root.val != subRoot.val){
+//            return false;
+//        }
+//        return check(root.left,subRoot.left) && check(root.right, subRoot.right);
+//    }
+//}
+
+//class Solution {
+//    public boolean wordBreak(String s, List<String> wordDict) {
+//        int n = s.length();
+//        boolean[] memo = new boolean[n+1];
+//        memo[0] = true;
+//        for (int i = 0; i <= s.length(); i++) {
+//            for (int j = 0; j < i; j++) {
+//                if (memo[j] && wordDict.contains(s.substring(j,i))){
+//                    memo[i] = true;
+//                    break;
+//                }
+//            }
+//        }
+//        return memo[n];
+//    }
+//}
+
+
+
