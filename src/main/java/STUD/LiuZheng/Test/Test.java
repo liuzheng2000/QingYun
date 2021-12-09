@@ -1,9 +1,9 @@
-package STUD.LiuZheng;
+package STUD.LiuZheng.Test;
 
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * @author qingyun
@@ -3173,5 +3173,241 @@ class Node {
 //    }
 //}
 
+//class Solution {
+//    int n = 0;
+//    int[][] direction = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+//    public int shortestPathBinaryMatrix(int[][] grid) {
+//        n = grid.length;
+//        if (grid[0][0] != 0 || grid[n-1][n-1] !=0) {
+//            return -1;
+//        }
+//        if (n==1){
+//            return 1;
+//        }
+//        Deque<int[]> dp = new LinkedList<>();
+//        grid[0][0] = 1;
+//        dp.offer(new int[]{0,0});
+//        while (!dp.isEmpty()){
+//            int num = dp.size();
+//            for (int i = 0; i < num; i++) {
+//                int[] curr  = dp.poll();
+//                int x = curr[0];
+//                int y = curr[1];
+//                for (int j = 0; j < 8; j++) {
+//                    int tx = x + direction[j][0];
+//                    int ty = y + direction[j][1];
+//                    if (tx < 0 || tx > n-1 || ty<0 || ty > n-1){
+//                        continue;
+//                    }
+//                    if (grid[tx][ty] == 0){
+//                        if (tx == n-1 && ty == n-1){
+//                            return grid[x][y] + 1;
+//                        }
+//                       grid[tx][ty] = grid[x][y] + 1;
+//                        dp.offer(new int[]{tx,ty});
+//                    }
+//                }
+//            }
+//        }
+//        return -1;
+//    }
+//}
 
 
+//class Solution {
+//    int n ,m;
+//    public void solve(char[][] board) {
+//        n = board.length;
+//        if(n == 0){
+//            return;
+//        }
+//        m = board[0].length;
+//        for (int i = 0; i < n; i++) {
+//            dfs(board,i,0);
+//            dfs(board,i,m-1);
+//        }
+//        for (int i = 0; i < m-1; i++) {
+//            dfs(board,0,i);
+//            dfs(board,n-1,i);
+//        }
+//
+//        for (int i = 0; i < n; i++) {
+//            for (int j = 0; j < m; j++) {
+//                if (board[i][j] == 'A'){
+//                    board[i][j] = 'O';
+//                }else if (board[i][j] == 'O'){
+//                    board[i][j] = 'X';
+//                }
+//            }
+//        }
+//    }
+//
+//    private void dfs(char[][] board, int x, int y) {
+//        if (x < 0 || x >= n || y < 0 || y >= m || board[x][y] != 'O'){
+//            return;
+//        }
+//        board[x][y] = 'A';
+//        dfs(board,x+1,y);
+//        dfs(board,x-1,y);
+//        dfs(board,x,y+1);
+//        dfs(board,x,y-1);
+//    }
+//}
+
+//class Solution {
+//    ArrayList<List<Integer>> ans = new ArrayList<>();
+//    ArrayDeque<Integer> stack = new ArrayDeque<>();
+//    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+//        stack.offer(0);
+//        dfs(graph,0,graph.length-1);
+//        return ans;
+//    }
+//
+//    private void dfs(int[][] graph, int x, int n) {
+//        if (x == n){
+//            ans.add(new ArrayList<Integer>(stack));
+//            return;
+//        }
+//        for (int y : graph[x]) {
+//            stack.offerLast(y);
+//            dfs(graph,y,n);
+//            stack.pollLast();
+//        }
+//    }
+//}
+
+//class Solution {
+//
+//    public static void main(String[] args) {
+//        Solution solution = new Solution();
+//        solution.subsets(new int[] {1,2,3});
+//    }
+//
+//    List<Integer> t =  new ArrayList<Integer>();
+//    List<List<Integer>> ans =  new ArrayList<List<Integer>>();
+//
+//    public List<List<Integer>> subsets(int[] nums) {
+//        dfs(0,nums);
+//        return ans;
+//    }
+//
+//    private void dfs(int cur, int[] nums) {
+//        if (cur == nums.length){
+//            ans.add(new ArrayList<Integer>(t));
+//            return;
+//        }
+//
+//        t.add(nums[cur]);
+//        dfs(cur+1,nums);
+//        t.remove(t.size() - 1);
+//        dfs(cur + 1,nums);
+//    }
+//}
+
+//class Solution {
+//    ArrayList<Integer> t = new ArrayList<>();
+//    List<List<Integer>> ans = new ArrayList<>();
+//    public List<List<Integer>> subsetsWithDup(int[] nums) {
+//        Arrays.sort(nums);
+//        dfs(false,0,nums);
+//        return ans;
+//    }
+//
+//    private void dfs(boolean choosePre, int cur, int[] nums) {
+//        if (cur == nums.length){
+//            ans.add(new ArrayList<Integer>(t));
+//            return;
+//        }
+//        dfs(false,cur+1,nums);
+//        if (!choosePre && cur > 0 && nums[cur-1] == nums[cur]){
+//            return;
+//        }
+//        t.add(nums[cur]);
+//        dfs(true,cur+1,nums);
+//        t.remove(t.size()-1);
+//    }
+//}
+//
+
+//class Solution {
+//    boolean[] vis;
+//    public List<List<Integer>> permuteUnique(int[] nums) {
+//        ArrayList<List<Integer>> ans = new ArrayList<>();
+//        ArrayList<Integer> perm = new ArrayList<>();
+//        vis = new boolean[nums.length];
+//        Arrays.sort(nums);
+//        backtrack(nums,ans,0,perm);
+//        return ans;
+//    }
+//
+//    private void backtrack(int[] nums, ArrayList<List<Integer>> ans, int idx, ArrayList<Integer> perm) {
+//        if (idx == nums.length){
+//            ans.add(new ArrayList<Integer>(perm));
+//            return;
+//        }
+//        for (int i = 0; i < nums.length; i++) {
+//            if (vis[i] || (i >0 && nums[i] == nums[i-1]) && !vis[i-1]){
+//                continue;
+//            }
+//            perm.add(nums[i]);
+//            vis[i] = true;
+//            backtrack(nums, ans, idx + 1, perm);
+//            vis[i] = false;
+//            perm.remove(idx);
+//        }
+//    }
+//}
+
+//class Solution {
+//    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+//        ArrayList<List<Integer>> ans = new ArrayList<>();
+//        ArrayList<Integer> conbine = new ArrayList<>();
+//        dfs(candidates,target,ans,conbine,0);
+//        return ans;
+//    }
+//
+//    private void dfs(int[] candidates, int target, ArrayList<List<Integer>> ans, ArrayList<Integer> conbine, int idx) {
+//        if (idx == candidates.length){
+//            return;
+//        }
+//        if (target == 0){
+//            ans.add(new ArrayList<Integer>(conbine));
+//            return;
+//        }
+//        dfs(candidates, target, ans, conbine, idx+1);
+//        if (target - candidates[idx] >= 0){
+//            conbine.add(candidates[idx] );
+//            dfs(candidates, target - candidates[idx], ans, conbine, idx);
+//            conbine.remove(conbine.size() - 1);
+//        }
+//    }
+//}
+
+
+class Solution {
+    List<List<Integer>> ans = new ArrayList<>();
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    Arrays.sort(candidates);
+        ArrayList<Integer> list = new ArrayList<>();
+        backtrack(candidates,target,list,0);
+        return ans;
+    }
+
+    private void backtrack(int[] candidates, int target, ArrayList list, int stare) {
+        if ( target == 0){
+            ans.add(new ArrayList<Integer>(list));
+            return;
+        }
+        for (int i = stare; i < candidates.length; i++) {
+        if (candidates[i]  > target){
+            break;
+        }
+        if (i>0 && candidates[i] == candidates[i-1]){
+            continue;
+        }
+        list.add(candidates[i]);
+        backtrack(candidates, target-candidates[i], list, i);
+        list.remove(list.size() -1);
+        }
+    }
+}

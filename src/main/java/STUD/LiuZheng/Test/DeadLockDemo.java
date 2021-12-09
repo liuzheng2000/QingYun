@@ -1,4 +1,4 @@
-package STUD.LiuZheng;
+package STUD.LiuZheng.Test;
 
 public class DeadLockDemo {
     private static Object resource1 = new Object();//资源 1
