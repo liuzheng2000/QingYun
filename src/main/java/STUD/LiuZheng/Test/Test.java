@@ -3635,19 +3635,101 @@ class Node {
 
 
 
-class Solution{
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        int fib = solution.fib(5);
-        System.out.println(fib);
-    }
+//class Solution{
+//    public static void main(String[] args) {
+//        Solution solution = new Solution();
+//        int fib = solution.fib(5);
+//        System.out.println(fib);
+//    }
+//
+//    public int fib(int N){
+//        if (N < 1) {
+//            return 0;
+//        }
+//        int[] ints = new int[N + 1];
+//        return helper(ints,N);
+//    }
+//
+//    int helper(int[] memo ,int n){
+//        if (n == 1 || n == 2) {
+//            return 1;
+//        }
+//        if (memo[n] != 0) {
+//            return memo[n];
+//        }
+//        memo[n] = helper(memo,n -1) + helper(memo, n-2);
+//        return memo[n];
+//    }
+//
+//
+//}
 
-    public int fib(int N){
-        if (N == 1 || N == 2) {
-            return 1;
-        }
-        return fib(N - 1) + fib(N-2);
-    }
+//class Solution{
+//    public static void main(String[] args) {
+//        Solution solution = new Solution();
+//        int fib = solution.fib(5);
+//        System.out.println(fib);
+//    }
+//
+//    public int fib(int N){
+//       if ( N == 2 || N ==1 ){
+//           return 1;
+//       }
+//       int prev = 1 , curr = 1;
+//        for (int i = 3; i <= N; i++) {
+//            int sum = prev + curr;
+//            prev = curr;
+//            curr = sum;
+//        }
+//        return curr;
+//    }
 
 
-}
+//class Solution{
+//    public int coinChange(int[] coins, int amount){
+//        int[]dp = new int[amount+1];
+//        for (int i = 0; i < amount+1; i++) {
+//            dp[i] = amount+1;
+//        }
+//        dp[0] = 0;
+//        for (int i = 0; i < dp.length; i++) {
+//            for (Integer coin : coins) {
+//                if ( i - coin < 0) {
+//                    continue;
+//                }
+//                dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
+//            }
+//        }
+//
+//        return (dp[amount] == (amount+1)) ? -1 :dp[amount];
+//    }
+//}
+
+//class Solution{
+//    int minDistance(String s1, String s2) {
+//        int m = s1.length(), n = s2.length();
+//        int[][] dp = new int[m + 1][n + 1];
+//        for (int i = 1; i <= m ; i++) {
+//            dp[i][0] = i;
+//        }
+//        for (int j = 1; j <= n ; j++) {
+//            dp[0][j] = j;
+//        }
+//
+//        for (int i = 1; i <= m ; i++) {
+//            for (int j = 1; j <= n; j++) {
+//                if (s1.charAt(i-1) == s2.charAt(j-1)){
+//                    dp[i][j] = dp[i-1][j-1];
+//                }else {
+//                    dp[i][j] = min(dp[i-1][j] + 1,dp[i][j-1]+1,dp[i-1][j-1]+1);
+//                }
+//            }
+//        }
+//        return dp[m][n];
+//    }
+//
+//    int min(int a, int b, int c) {
+//        return Math.min(a, Math.min(b, c));
+//    }
+//}
+

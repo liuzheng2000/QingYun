@@ -7,42 +7,72 @@ package STUD.LiuZheng.Test;
  * @version 1.0
  * @date 2021/4/12 19:02
  */
-import java.util.ArrayList;
+
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        int[][] ints = new int[53][53];
+        for (int i = 1; i <= 52; i++) {
+            ints[i][0]=i;
+        }
         Scanner scanner = new Scanner(System.in);
-        String s = scanner.nextLine();
-        String[] split = s.split(",");
-        int length = split.length;
-        String[] baogouhetangshu = split[length-1].split("#");
-        int tangshu = Integer.parseInt(baogouhetangshu[1]);
-        if (length+1 < tangshu){
-            System.out.println("趟数必须小于等于【包裹个数】");
+        String word = scanner.nextLine();
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            ints[c-97][1] +=1;
         }
-        int[] baogou = new int[length];
-        baogou[baogou.length-1]  = Integer.parseInt(baogouhetangshu[0]);
-        for (int i = 0; i < length-1; i++) {
-            baogou[i] = Integer.parseInt(split[i]);
-        }
-        int maxBao = 0;
-        int sum = 0;
-        for (int i : baogou) {
-            maxBao = Math.max(maxBao,i);
-            sum+=i;
-        }
-
-        while((maxBao % 5)!=0){
-            maxBao++;
-        }
-
-        for (int i = maxBao; i < Integer.MAX_VALUE; i+=5) {
-            if ((i * tangshu)  >= sum){
-                System.out.println(i);
-                break;
+        Arrays.sort(ints, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[2] - o2[2];
+            }
+        });
+        for (int[] anInt : ints) {
+            if (anInt[1] != 0){
+                char c = (char) (anInt[0] + 97);
+                for (int i = 0; i < anInt[1]; i++) {
+                    System.out.println(c);
+                }
             }
         }
-
     }
 }
+
+
+//public class Main {
+//    public static void main(String[] args) {
+//        Scanner scanner = new Scanner(System.in);
+//        String length = scanner.nextLine();
+//
+//        int[][] properties = new int[Integer.parseInt(length)][Integer.parseInt(length)];
+//        for (int i = 0; i < Integer.parseInt(length); i++) {
+//            String propertiesValue = scanner.nextLine();
+//            String[] s = propertiesValue.split(" ");
+//            properties[i][0] = Integer.parseInt(s[0]);
+//            properties[i][1] = Integer.parseInt(s[1]);
+//        }
+//
+//
+//        Arrays.sort(properties, new Comparator<int[]>() {
+//            @Override
+//            public int compare(int[] o1, int[] o2) {
+//                return o1[0] - o2[0];
+//            }
+//        });
+//
+//
+//        int count = 0;
+//        for (int i = 0; i < properties.length; i++) {
+//            for (int j = i; j < properties.length; j++) {
+//                if (properties[i][1] <= properties[j][1]){
+//                    count++;
+//                    break;
+//                }
+//            }
+//        }
+//        System.out.println(count);
+//    }
+//}
